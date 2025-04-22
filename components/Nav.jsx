@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 import { sendNewsletterForm } from "@/lib/api";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ShieldCheck } from "lucide-react";
 
 const initValues = {
   email: "",
@@ -69,49 +69,49 @@ const Nav = () => {
       textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-red-600 hover:scale-105";
+      bgColor = "bg-red-500 md:hover:scale-105";
       break;
     case "/services/search-engine-optimization":
       textColor = "white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-red-600 hover:scale-105";
+      bgColor = "bg-red-500 md:hover:scale-105";
       break;
     case "/services/social-media-marketing":
       textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-red-600 hover:scale-105";
+      bgColor = "bg-red-500 md:hover:scale-105";
       break;
     case "/blog":
       textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-red-600 hover:scale-105";
+      bgColor = "bg-red-500 md:hover:scale-105";
       break;
     case "/request":
       textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-red-600 hover:scale-105";
+      bgColor = "bg-red-500 md:hover:scale-105";
       break;
     case "/services":
       textColor = "text-white";
       hoverColor = "md:hover:text-red-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-red-400";
-      bgColor = "bg-red-600 hover:scale-105 ";
+      bgColor = "bg-red-500 :mdhover:scale-105";
       break;
     case "/services/digital-marketing":
       textColor = "text-red-500";
       hoverColor = "md:hover:text-red-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-red-400";
-      bgColor = "bg-red-600 hover:scale-105";
+      bgColor = "bg-red-500 md:hover:scale-105";
       break;
     default:
       textColor = "text-white";
       hoverColor = "md:hover:text-blue-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-blue-400";
-      bgColor = "bg-red-600 hover:scale-105";
+      bgColor = "bg-red-500 md:hover:scale-105";
       break;
   }
   function handleClick() {
@@ -232,6 +232,10 @@ const Nav = () => {
               Subscribe
             </button>
           </form>
+          {/* <div className="flex mt-20 ms-8 text-black">
+            <ShieldCheck className="w-7 h-7" />
+            <p>Privacy policy</p>
+          </div> */}
         </div>
       </div>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -249,7 +253,7 @@ const Nav = () => {
           <Link href="/request">
             <button
               type="button"
-              className={`text-white ${bgColor} shadow-lg font-bold uppercase focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0`}
+              className={`text-white ${bgColor} shadow-lg font-bold uppercase md:focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0`}
             >
               Get Quote
             </button>
