@@ -72,7 +72,7 @@ const Nav = () => {
       bgColor = "bg-red-500 md:hover:scale-105";
       break;
     case "/services/search-engine-optimization":
-      textColor = "white";
+      textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
       bgColor = "bg-red-500 md:hover:scale-105";
@@ -102,7 +102,7 @@ const Nav = () => {
       bgColor = "bg-red-500 :mdhover:scale-105";
       break;
     case "/services/digital-marketing":
-      textColor = "text-red-500";
+      textColor = "text-white";
       hoverColor = "md:hover:text-red-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-red-400";
       bgColor = "bg-red-500 md:hover:scale-105";
@@ -126,7 +126,16 @@ const Nav = () => {
     <nav className="absolute z-10 top-0 w-full">
       <div className={`sub_nav hidden ${bgGradient}`} id="sub_nav">
         <div className="flex justify-between m-4">
-          <p></p>
+          <a href="/" className="flex flex-center gap-2">
+            <Image
+              src="/assets/images/logo.png"
+              alt="logo"
+              width={60}
+              height={60}
+              className="object-contain"
+            />
+            {/* <p>LasioWeb</p> */}
+          </a>
           <svg
             onClick={handleClick}
             className={`w-6 h-6 mt-5 me-3 text-black`}

@@ -10,7 +10,7 @@ const ContentButton = (props) => {
         <p className="mb-3 text-lg">
           {props.paragraph}
         </p>
-        <button className={`px-7 bg-gray-400 hover:bg-gray-600 text-white py-4 m_auto mt-4 font-bold`}>
+        <button className={`px-7 bg-black hover:bg-gray-600 text-white py-4 m_auto mt-4 font-bold`}>
           {props.button}
         </button>
       </section>

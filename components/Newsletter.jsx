@@ -9,7 +9,7 @@ const initValues = {
 };
 const initState = { values: initValues };
 
-const Newsletter = ({background, button, hover }) => {
+const Newsletter = ({ background, button, hover }) => {
   const toast = useToast();
   const [state, setState] = useState(initState);
   const { values, error, isLoading } = state;
@@ -25,13 +25,16 @@ const Newsletter = ({background, button, hover }) => {
 
   const onSubscribe = async (e) => {
     e.preventDefault();
-    document.getElementById("submitButton").setAttribute("class", "hidden")
+    document.getElementById("sp").setAttribute("class", "hidden");
     try {
       setState((prev) => ({
         ...prev,
         isLoading: true,
       }));
       await sendNewsletterForm(values);
+    document
+      .getElementById("sp")
+      .setAttribute("class", "w-full absolute left-0");
       setState(initState);
       toast({
         title: "Thank you for subscribing.",
@@ -41,7 +44,12 @@ const Newsletter = ({background, button, hover }) => {
         position: "top",
         isClosable: true,
       });
-    document.getElementById("submitButton").setAttribute("class", "absolute text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800")
+      // document
+      //   .getElementById("submitButton")
+      //   .setAttribute(
+      //     "class",
+      //     "absolute text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      //   );
     } catch (error) {
       setState((prev) => ({
         ...prev,
@@ -67,26 +75,41 @@ const Newsletter = ({background, button, hover }) => {
           onSubmit={onSubscribe}
         >
           <div class="">
-          <input
+            <input
               type="email"
               name="email"
               id="email"
               value={values.email}
               onChange={handleChange}
-              class="bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm focus:ring-blue-500 focus:border-blue-500 block w-full px-3.5 py-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5"
+              class="bg-gray-50 border-none text-gray-900 rounded-full text-sm ring-0 block w-full px-3.5 py-4 mb-5"
               placeholder="Email address"
               required
             />
           </div>
-          <Button
-            disabled={true}
-            variant="solid"
-            colorScheme="blue"
-            isLoading={isLoading}
-          >
-            Subscribe
-          </Button>
-          <button type="submit" id="submitButton" style={{marginLeft: -107, width: 109}} class={`${button} ${hover} absolute text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2`}>Subscribe</button>
+          {/* <p id="sp">sp</p> */}
+          <div className="w-full absolute left-0">
+            <div
+              className={`${button} mx-auto rounded-lg w-fit`}
+              style={{ width: 115 }}
+            >
+              <Button
+                disabled={true}
+                variant="solid"
+                colorScheme=""
+                isLoading={isLoading}
+              >
+                
+              </Button>
+            </div>
+          </div>
+          <div className="w-full absolute left-0" id="sp">
+            <button
+              style={{ width: 115 }}
+              className={`${button} hover:scale-105 shadow-lg text-white font-medium rounded-lg px-5 py-2.5`}
+            >
+              Subscribe
+            </button>
+          </div>
         </form>
       </div>
     </div>

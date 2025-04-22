@@ -264,7 +264,7 @@ const page = () => {
                 </div>
               </div>
               <div className="second bg-white border border-green-900">
-                <h1 className="border-green-900 bg-green-900 text-base md:text-base lg:text-xl p-7 lg:block lg:hidden">
+                <h1 className="border-green-900 bg-green-900 text-base md:text-base lg:text-xl p-7 block lg:hidden">
                   Communication
                 </h1>
                 <h1 className="border-green-900 bg-green-900 text-base md:text-base lg:text-xl p-7  hidden lg:block">
