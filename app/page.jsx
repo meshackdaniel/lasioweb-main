@@ -17,7 +17,7 @@ export default async function Home() {
         src="https://res.cloudinary.com/dxmpvvt2k/video/upload/v1718679426/eld6w6dr0fb8ytruhkwq.mp4"
         className="h-screen w-full max-w-screen-2xl"
       >
-        {/* <div className="h-screen w-screen max-w-screen-2xl bg-blue-800 absolute top-0 -z-10"></div> */}
+        <div className="h-screen w-screen max-w-screen-2xl bg-blue-800 absolute top-0 -z-10"></div>
         <div
           id=""
           className="text-white w-screen max-w-screen-2xl ms-10 md:ms-20"
@@ -31,7 +31,7 @@ export default async function Home() {
           <Link
             href="/request"
             type="button"
-            className="bg-white hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-black font-bold mt-10 rounded-full text-sm px-8 py-4 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="bg-white hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 text-black font-bold mt-10 rounded-full text-sm px-8 py-4 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Get started
             <svg
@@ -107,7 +107,7 @@ export default async function Home() {
         </div>
       </section>
       <section className="md:w-5/6 m_extra px-10">
-        <h1 className="text-base md:text-4xl text-center md:text-left md:text-center lg:text-4xl">
+        <h1 className="text-base md:text-4xl text-center font-bold md:text-center lg:text-4xl">
           What We Do
         </h1>
         <p className="text-center mt-5 w-5/6 md:w-3/6 m_auto">
