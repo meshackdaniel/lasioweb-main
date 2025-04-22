@@ -2,8 +2,62 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { Button, useToast } from "@chakra-ui/react";
+import { useState } from "react";
+import { sendNewsletterForm } from "@/lib/api";
+import { ChevronRight } from "lucide-react";
+
+const initValues = {
+  email: "",
+};
+const initState = { values: initValues };
 
 const Nav = () => {
+  const toast = useToast();
+  const [state, setState] = useState(initState);
+  const { values, error, isLoading } = state;
+
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+
+  const onSubscribe = async (e) => {
+    e.preventDefault();
+    document.getElementById("submitButton").setAttribute("class", "hidden");
+    try {
+      setState((prev) => ({
+        ...prev,
+        isLoading: true,
+      }));
+      await sendNewsletterForm(values);
+      setState(initState);
+      toast({
+        title: "Thank you for subscribing.",
+        description: "You can now receive updates via your email.",
+        status: "success",
+        duration: 3000,
+        position: "top",
+        isClosable: true,
+      });
+      document
+        .getElementById("submitButton")
+        .setAttribute(
+          "class",
+          "absolute z-20 bg-black w-5/6 text-white focus:ring-4 focus:ring-black font-medium rounded-lg text-base px-5 py-2.5 mb-2 mx-auto"
+        );
+    } catch (error) {
+      setState((prev) => ({
+        ...prev,
+        error: error.message,
+      }));
+    }
+  };
+
   const pathname = usePathname();
   var textColor;
   var bgColor;
@@ -12,52 +66,52 @@ const Nav = () => {
 
   switch (pathname) {
     case "/about":
-      textColor = "text-green-500";
+      textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-green-500 hover:bg-green-700 shadow-green-500/50";
+      bgColor = "bg-red-600 hover:scale-105";
       break;
     case "/services/search-engine-optimization":
-      textColor = "text-green-500";
+      textColor = "white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-green-500 hover:bg-green-700 shadow-green-500/50";
+      bgColor = "bg-red-600 hover:scale-105";
       break;
     case "/services/social-media-marketing":
-      textColor = "text-green-500";
+      textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-green-500 hover:bg-green-700 shadow-green-500/50";
+      bgColor = "bg-red-600 hover:scale-105";
       break;
     case "/blog":
-      textColor = "text-green-500";
+      textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-green-500 hover:bg-green-700 shadow-green-500/50";
+      bgColor = "bg-red-600 hover:scale-105";
       break;
     case "/request":
-      textColor = "text-green-500";
+      textColor = "text-white";
       hoverColor = "md:hover:text-green-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-green-400";
-      bgColor = "bg-green-500 hover:bg-green-700 shadow-green-500/50";
+      bgColor = "bg-red-600 hover:scale-105";
       break;
     case "/services":
-      textColor = "text-red-500";
+      textColor = "text-white";
       hoverColor = "md:hover:text-red-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-red-400";
-      bgColor = "bg-red-600 hover:bg-red-800 ";
+      bgColor = "bg-red-600 hover:scale-105 ";
       break;
     case "/services/digital-marketing":
       textColor = "text-red-500";
       hoverColor = "md:hover:text-red-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-red-400";
-      bgColor = "bg-red-700 hover:bg-red-900";
+      bgColor = "bg-red-600 hover:scale-105";
       break;
     default:
-      textColor = "text-blue-500";
+      textColor = "text-white";
       hoverColor = "md:hover:text-blue-500";
       bgGradient = "bg-gradient-to-b from-stone-100 via-stone-100 to-blue-400";
-      bgColor = "bg-red-blue hover:bg-blue-700 shadow-blue-500/50";
+      bgColor = "bg-red-600 hover:scale-105";
       break;
   }
   function handleClick() {
@@ -70,27 +124,16 @@ const Nav = () => {
   }
   return (
     <nav className="absolute z-10 top-0 w-full">
-      <div
-        className={`sub_nav hidden ${bgGradient}`}
-        id="sub_nav"
-      >
+      <div className={`sub_nav hidden ${bgGradient}`} id="sub_nav">
         <div className="flex justify-between m-4">
-          <Link href="/" className="flex flex-center gap-2">
-            <Image
-              src="/assets/images/logo.png"
-              alt="logo"
-              width={60}
-              height={60}
-              className="object-contain"
-            />
-          </Link>
+          <p></p>
           <svg
-            className={`w-5 h-5 mt-5 me-3 ${textColor}`}
+            onClick={handleClick}
+            className={`w-6 h-6 mt-5 me-3 text-black`}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 14 14"
-            onClick={handleClick}
           >
             <path
               stroke="currentColor"
@@ -101,48 +144,95 @@ const Nav = () => {
             />
           </svg>
         </div>
-        <ul className="flex text-black flex-col p-4 text-center md:p-0 mt-4 font-medium text-2xl ms-0  md:static rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700 ">
-          <li onClick={handleClick}>
-            <Link
-              href="/about"
-              className="block py-2 pl-3 pr-4 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+        <div className="">
+          <ul className="flex text-black flex-col p-4 mt-14 font-bold md:p-0 text-3xl ms-0  md:static rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
+            <li>
+              <a
+                href="/about"
+                className="flex justify-between items-center py-2 pl-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+              >
+                <p>About</p>
+                <ChevronRight className="text-black w-7 h-7" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="/services"
+                className="flex justify-between items-center py-2 pl-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+              >
+                Services
+                <ChevronRight className="text-black w-7 h-7" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="/our_work"
+                className="flex justify-between items-center py-2 pl-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+              >
+                <p>Our work</p>
+                <ChevronRight className="text-black w-7 h-7" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="/blog"
+                className="flex justify-between items-center py-2 pl-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+              >
+                <p>Blog</p>
+                <ChevronRight className="text-black w-7 h-7" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="/contact"
+                className="flex justify-between items-center py-2 pl-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+              >
+                <p>Contact</p>
+                <ChevronRight className="text-black w-7 h-7" />
+              </a>
+            </li>
+          </ul>
+          <form
+            class="w-5/6 md:w-3/5 lg:w-2/5 mx-auto mt-10"
+            onSubmit={onSubscribe}
+          >
+            <p className="mb-4 font-semibold">
+              Sign up for our Newsletter and get mails of our popular offers
+            </p>
+            <div class="">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={values.email}
+                onChange={handleChange}
+                className="border rounded-lg  border-black text-black text-sm block w-full px-3.5 py-4 placeholder-black focus:ring-black focus:border-black mb-5"
+                placeholder="Email address"
+                required
+              />
+            </div>
+            <div className="absolute w-5/6 z-10 bg-black rounded-lg">
+              <div className="bg-red w-fit mx-auto">
+                <Button
+                  disabled={true}
+                  variant="solid"
+                  colorScheme="black"
+                  isLoading={isLoading}
+                  className="mx-auto"
+                >
+                  Subscribe
+                </Button>
+              </div>
+            </div>
+            <button
+              // type="submit"
+              id="submitButton"
+              className={`absolute z-20 bg-black w-5/6 text-white focus:ring-4 focus:ring-black font-medium rounded-lg text-base px-5 py-2.5 mb-2 mx-auto`}
             >
-              About
-            </Link>
-          </li>
-          <li onClick={handleClick}>
-            <Link
-              href="/services"
-              className="block py-2 pl-3 pr-4 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-            >
-              Services
-            </Link>
-          </li>
-          <li onClick={handleClick}>
-            <a
-              href="/our_work"
-              className="block py-2 pl-3 pr-4 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-            >
-              Our work
-            </a>
-          </li>
-          <li onClick={handleClick}>
-            <Link
-              href="/blog"
-              className="block py-2 pl-3 pr-4 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-            >
-              Blog
-            </Link>
-          </li>
-          <li onClick={handleClick}>
-            <Link
-              href="/contact"
-              className="block py-2 pl-3 pr-4 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
+              Subscribe
+            </button>
+          </form>
+        </div>
       </div>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="flex flex-center gap-2">
@@ -159,7 +249,7 @@ const Nav = () => {
           <Link href="/request">
             <button
               type="button"
-              className={`text-white ${bgColor} shadow-lg font-bold uppercase bg-blue-700 focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0`}
+              className={`text-white ${bgColor} shadow-lg font-bold uppercase focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0`}
             >
               Get Quote
             </button>
@@ -170,7 +260,7 @@ const Nav = () => {
           >
             <span className="sr-only">Open main menu</span>
             <svg
-              className={`${textColor} w-5 h-5`}
+              className={`${textColor} w-14 h-14`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

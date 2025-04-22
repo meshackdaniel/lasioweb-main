@@ -6,70 +6,77 @@ import BackgroundVideo from "next-video/background-video";
 const page = () => {
   return (
     <div className="">
-      <div style={{backgroundPosition: "bottom center",backgroundImage: "url('https://res.cloudinary.com/dj2ybe6v0/image/upload/v1728909113/Black_white_digital_marketing_facebook_cover_1_zs3vgl.png')"}} className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-green-800 h-screen bg-green-800">
+      <div
+        style={{
+          backgroundPosition: "bottom center",
+          backgroundImage:
+            "url('https://res.cloudinary.com/dj2ybe6v0/image/upload/v1728909113/Black_white_digital_marketing_facebook_cover_1_zs3vgl.png')",
+        }}
+        className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-green-800 h-screen bg-green-800"
+      >
         <div id="" className="basis-4/4 md:basis-2/4 text-white md:ms-20">
-          <h1 className="font-bold text-4xl mt-20 md:mt-0">
-            About Us
-          </h1>
-          <p className="text-2xl mt-3">
-          We are experienced web designers who solve problems and grow
-          businesses.
+          <h1 className="font-bold text-5xl mt-20 md:mt-0">About Us</h1>
+          <p className="text-3xl mt-3">
+            We are experienced web designers who solve problems and grow
+            businesses.
           </p>
         </div>
       </div>
-      <section className="w-5/6 md:w-4/6">
-        <h1 className="text-center uppercase text-xl font-bold md:text-3xl">
+      <section className="w-5/6 md:w-5/6">
+        <h1 className="text-center uppercase text-2xl font-bold md:text-3xl">
           Who We Are
         </h1>
-        <p className="mt-5 text-center sm:text-start md:text-start  ">
+        <p className="mt-5 text-center sm:text-start text-xl md:text-start">
           Welcome to LasioWeb! We are a dynamic team of creative individuals
           with a passion for web design, logo and branding, search engine
           optimization (SEO), and social media marketing. Our mission is to help
           businesses establish a strong online presence and reach their full
           potential in the digital world.
         </p>
-        <h1 className="text-center text-xl font-bold md:text-3xl uppercase mt-10">
+        <h1 className="text-center text-2xl font-bold md:text-3xl uppercase mt-14">
           Our Expertise
         </h1>
-        <h1 className="mt-5 text-xl font-semibold">Web Design</h1>
-        <p className="mt-3">
+        <h1 className="mt-7 text-xl font-semibold">Web Design</h1>
+        <p className="mt-3 text-base">
           We believe that a website is the digital face of your business. Our
           team of experienced web designers is dedicated to creating visually
           appealing and user-friendly websites that reflect your brand's
           identity and values.
         </p>
-        <h1 className="mt-5 text-xl font-semibold">Logo and Branding</h1>
-        <p className="mt-3">
+        <h1 className="mt-7 text-xl font-semibold">Logo and Branding</h1>
+        <p className="mt-3 text-base">
           Your logo and branding are the first things that people notice about
           your business. At LasioWeb, we create unique and memorable logos and
           branding elements that effectively communicate your brand's
           personality and make you stand out from the competition.
         </p>
-        <h1 className="mt-5 text-xl font-semibold">
+        <h1 className="mt-7 text-xl font-semibold">
           Search Engine Optimization (SEO)
         </h1>
-        <p className="mt-3">
+        <p className="mt-3 text-base">
           In today's digital age, visibility on search engines is crucial for
           your business's success. Our SEO experts use proven strategies to
           improve your website's ranking on search engine results pages,
           increasing your visibility and driving more traffic to your site.
         </p>
-        <h1 className="mt-5 text-xl font-semibold">Social Media Marketing</h1>
-        <p className="mt-3">
+        <h1 className="mt-7 text-xl font-semibold">Social Media Marketing</h1>
+        <p className="mt-3 text-base">
           Social media platforms are powerful tools for reaching and engaging
           with your target audience. Our social media marketing team helps you
           leverage these platforms to build relationships with your audience,
           increase brand awareness, and drive more traffic to your website.
         </p>
-        <h1 className="mt-5 text-xl font-semibold">Our Commitment</h1>
-        <p className="mt-3">
+        <h1 className="mt-7 text-xl font-semibold">Our Commitment</h1>
+        <p className="mt-3 text-base">
           At LasioWeb, we are committed to delivering high-quality services that
           meet our clients' needs. We work closely with our clients throughout
           the process, ensuring that the final product aligns with their vision
           and goals. Your success is our success! Join us on this exciting
           journey to digital excellence!
         </p>
-        <p className="mt-3 font-semibold uppercase">Welcome to LasioWeb!</p>
+        <p className="mt-3 font-semibold uppercase text-base">
+          Welcome to LasioWeb!
+        </p>
       </section>
       <section className="bg-slate-100">
         <div className="grid grid-cols-1 gap-0 md:grid-cols-2 vision_mission">

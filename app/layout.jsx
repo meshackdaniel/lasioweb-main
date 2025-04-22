@@ -48,7 +48,6 @@ const RootLayout = ({ children }) => {
       >
         <ChakraProvider>
           <Nav />
-
           <main className="app">
             {children}
             <Footer />

@@ -18,11 +18,14 @@ export default async function Home() {
         className="h-screen w-full max-w-screen-2xl"
       >
         {/* <div className="h-screen w-screen max-w-screen-2xl bg-blue-800 absolute top-0 -z-10"></div> */}
-        <div id="" className="text-white w-screen max-w-screen-2xl ms-10 md:ms-20">
-          <h1 className="font-bold text-4xl mt-20 md:mt-0">
+        <div
+          id=""
+          className="text-white w-screen max-w-screen-2xl ms-10 md:ms-20"
+        >
+          <h1 className="font-bold text-5xl mt-20 md:mt-0">
             We craft web experiences
           </h1>
-          <p className="text-2xl mt-3">
+          <p className="text-3xl mt-3">
             <span className="font-bold">that</span> thrives business
           </p>
           <Link
@@ -64,7 +67,7 @@ export default async function Home() {
             <p className="hidden md:block">
               Some of our most common services includes:
             </p>
-            <p className="mt-5 flex m-auto w-fit content-center items-center">
+            <p className="mt-5 flex w-fit content-center items-center">
               <Link
                 href="/about"
                 className="me-1 font-bold text-sm md:hover:text-blue-700 text-blue-500"
@@ -85,13 +88,21 @@ export default async function Home() {
           </div>
         </div>
         <div>
-          <ul className="list-none  mt-10 text-lg text-center common_services hidden md:block">
-            <li className="hover:text-blue-900">e-commerce</li>
-            <li className="hover:text-blue-900 mt-2">corporate</li>
-            <li className="hover:text-blue-900 mt-2">portfolio</li>
-            <li className="hover:text-blue-900 mt-2">Nonprofit</li>
-            <li className="hover:text-blue-900 mt-2">Legal</li>
-            <li className="hover:text-blue-900 mt-2">Financial</li>
+          <ul className="list-none  mt-10 text-xl text-center common_services hidden md:block capitalize">
+            <li className="hover:text-blue-900 cursor-default">e-commerce</li>
+            <li className="hover:text-blue-900 mt-2 cursor-default">
+              corporate
+            </li>
+            <li className="hover:text-blue-900 mt-2 cursor-default">
+              portfolio
+            </li>
+            <li className="hover:text-blue-900 mt-2 cursor-default">
+              Nonprofit
+            </li>
+            <li className="hover:text-blue-900 mt-2 cursor-default">Legal</li>
+            <li className="hover:text-blue-900 mt-2 cursor-default">
+              Financial
+            </li>
           </ul>
         </div>
       </section>
@@ -594,7 +605,11 @@ export default async function Home() {
         </div>
       </section>
       <Portfolio projects={projects} />
-      <Newsletter background="bg-blue-900" button="bg-blue-700" hover="hover:bg-blue-500" />
+      <Newsletter
+        background="bg-blue-900"
+        button="bg-blue-700"
+        hover="hover:bg-blue-500"
+      />
     </div>
   );
 }

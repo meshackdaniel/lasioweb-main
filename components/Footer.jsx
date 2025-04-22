@@ -32,7 +32,10 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:lasiowebs@gmail.com" className="hover:underline">
+                  <a
+                    href="mailto:lasiowebs@gmail.com"
+                    className="hover:underline"
+                  >
                     lasiowebs@gmail.com
                   </a>
                 </li>
@@ -46,15 +49,19 @@ const Footer = () => {
                 <li className="mb-4">
                   <a
                     href="https://web.facebook.com/people/Lasioweb/61555114805482/?sk=about"
-                    className="hover:underline "
+                    className="hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Facebook
                   </a>
                 </li>
                 <li>
                   <a
-                    href=""
+                    href="https://www.instagram.com/lasioweb/"
                     className="hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Instagram
                   </a>
