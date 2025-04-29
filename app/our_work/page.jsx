@@ -37,16 +37,19 @@ export default async function ourWork() {
     <div className="text-sm">
       <BackgroundVideo
         src="https://res.cloudinary.com/dj2ybe6v0/video/upload/v1728896843/Blue_White_3D_Project_Plan_Business_Presentation_27_baw68l.mp4"
-        className="h-screen w-full max-w-screen-2xl bg-blue-800"
-      >
-        <div id="" className="basis-4/4 max-w-xl md:-ms-80 text-white">
-          <h1 className="font-bold text-4xl mt-20 md:mt-0">Our Work</h1>
-          <p className="text-2xl mt-3">
+        className="h-screen w-full max-w-screen-2xl bg-black"
+      ></BackgroundVideo>
+      <div className="absolute top-0 left-0 h-screen w-full flex items-center px-10">
+        <div className="max-w-screen-xl">
+          <h1 className="font-bold text-white text-5xl  md:mt-0 relative">
+            Our Work
+          </h1>
+          <p className="text-2xl md:text-3xl mt-3 md:w-4/6 text-white">
             Each work as helped strengthing our experience and delivery, thereby
             making us the best.
           </p>
         </div>
-      </BackgroundVideo>
+      </div>
       {/* <section className="hidden md:grid grid sm:grid-cols-1 md:grid-cols-10 w-5/6 text-xs">
         <a className="" onClick={handleFilter}>
           all

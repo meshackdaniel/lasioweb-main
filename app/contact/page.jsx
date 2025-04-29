@@ -27,13 +27,16 @@ const contact = () => {
     }));
   const onSubmit = async (e) => {
     e.preventDefault();
-    document.getElementById("submitButton").setAttribute("class", "hidden");
+    document.getElementById("sp").setAttribute("class", "hidden");
     try {
       setState((prev) => ({
         ...prev,
         isLoading: true,
       }));
       await sendContactForm(values);
+      document
+        .getElementById("sp")
+        .setAttribute("class", "absolute");
       setState(initState);
       toast({
         title: "Message sent.",
@@ -196,23 +199,28 @@ const contact = () => {
               onChange={handleChange}
               required
             ></textarea>
-            <div className="mt-5 mx-auto w-32 ms-3">
-              <Button
-                disabled={true}
-                variant="solid"
-                colorScheme="blue"
-                isLoading={isLoading}
-              >
-                --------
-              </Button>
-              <button
-                type="submit"
-                id="submitButton"
-                style={{ width: 109, marginLeft: -86 }}
-                class="absolute text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-              >
-                Send
-              </button>
+            <div className="mt-7 w-fit mx-auto flex">
+              <div className=" ">
+                <div
+                  className={`bg-blue-700 flex justify-center items-center rounded-lg w-fit`}
+                  style={{ width: 115 }}
+                >
+                  <Button
+                    disabled={true}
+                    variant="solid"
+                    colorScheme=""
+                    isLoading={isLoading}
+                  ></Button>
+                </div>
+              </div>
+              <div className="absolute" id="sp">
+                <button
+                  style={{ width: 115 }}
+                  className={`hover:scale-105 shadow-2xl bg-blue-700 text-white font-medium rounded-lg px-5 py-2.5`}
+                >
+                  Subscribe
+                </button>
+              </div>
             </div>
           </form>
         </section>

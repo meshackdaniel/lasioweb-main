@@ -38,38 +38,6 @@ export default async function Project({ params }) {
               </svg>
             </Link>
             <p className="stick mx-1"></p>
-            {/* <div className="flex">
-              <svg
-                className="w-5 h-5 mt-2 mx-3 text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 5H1m0 0 4 4M1 5l4-4"
-                />
-              </svg>
-              <svg
-                className="w-5 h-5 mt-2 mx-3 text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </div> */}
           </div>
           <div className="self-center text-2xl font-bold">{project.name}</div>
         </div>

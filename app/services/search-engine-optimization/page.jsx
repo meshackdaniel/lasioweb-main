@@ -3,7 +3,7 @@ import Image from "next/image";
 import GetStarted from "@/components/GetStarted";
 import { seoContactForm } from "@/lib/api";
 import { useState } from "react";
-import { FormControl, useToast } from "@chakra-ui/react";
+import { Button, FormControl, useToast } from "@chakra-ui/react";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 
@@ -25,7 +25,7 @@ const initState = { values: initValues };
 const seo = () => {
   const toast = useToast();
   const [state, setState] = useState(initState);
-  const { values } = state;
+  const { values, isLoading } = state;
   const handleChange = ({ target }) =>
     setState((prev) => ({
       ...prev,
@@ -35,13 +35,15 @@ const seo = () => {
       },
     }));
   const onSubmit = async (e) => {
-    // setState((prev) => ({
-    //   ...prev,
-    //   isLoading: true
-    // }));
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
     e.preventDefault();
+    document.getElementById("sp").setAttribute("class", "hidden");
     try {
       await seoContactForm(values);
+      document.getElementById("sp").setAttribute("class", "absolute");
       setState(initState);
       toast({
         title: "Message sent.",
@@ -73,13 +75,20 @@ const seo = () => {
     }
   };
   return (
-    <div className="text-sm">
-      <div style={{backgroundPosition: "bottom center",backgroundImage: "url('https://res.cloudinary.com/dj2ybe6v0/image/upload/v1728986524/Black_white_digital_marketing_facebook_cover_4_hifwbz.png')"}} className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-green-800 h-screen bg-green-800">
+    <div>
+      <div
+        style={{
+          backgroundPosition: "bottom center",
+          backgroundImage:
+            "url('https://res.cloudinary.com/dj2ybe6v0/image/upload/v1728986524/Black_white_digital_marketing_facebook_cover_4_hifwbz.png')",
+        }}
+        className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-green-800 h-screen bg-green-800"
+      >
         <div id="" className="basis-4/4 md:basis-2/4 text-white md:ms-20">
-          <h1 className="font-bold text-4xl mt-20 md:mt-0">
+          <h1 className="font-bold text-4xl md:text-5xl mt-20 md:mt-0">
             Search Engine Optimization
           </h1>
-          <p className="text-2xl mt-3">
+          <p className="text-2xl md:text-3xl mt-3">
             Always appear first on searches related to you.
           </p>
         </div>
@@ -221,7 +230,7 @@ const seo = () => {
                   <h1 className="text-xl font">Research & Execution</h1>
                 </div>
               </div>
-              <div className="second bg-white bg-slate-700">
+              <div className="second bg-white">
                 <h1 className="text-base bg-green-600 md:text-base lg:text-xl p-7 lg:block lg:hidden">
                   Research & Execution
                 </h1>
@@ -262,7 +271,7 @@ const seo = () => {
                   <h1 className="text-xl font">SEO Measuring & Web A...</h1>
                 </div>
               </div>
-              <div className="second bg-white bg-slate-700">
+              <div className="second bg-white">
                 <h1 className="text-base bg-green-900 md:text-base lg:text-xl p-7 lg:block lg:hidden">
                   SEO Measuring & Web Analytics
                 </h1>
@@ -277,7 +286,7 @@ const seo = () => {
           </div>
         </div>
       </section>
-      <section className="md:ps-10 md:pe-10 md:flex w-5/6 mb-11 mb-10">
+      <section className="md:ps-10 md:pe-10 md:flex w-5/6 mb-10">
         <div className="basis-2/4">
           <h1 className="w-5/6 text-xl md:text-4xl">
             Let our Years of proven SEO experience help boost your rankings and
@@ -301,11 +310,10 @@ const seo = () => {
         </div>
         <div className="basis-2/4">
           <h1 className="text-center font-bold mt-10 md:mt-0">
-            REQUEST A FREE SEO SITE ANALYSIS IN SECOND bg-whiteS bg-green-900
+            REQUEST A FREE SEO SITE ANALYSIS IN SECOND
           </h1>
           <p className="text-center mt-2 mb-6">
             Complete the form below to get your free quote and analysis.
-            bg-green-900{" "}
           </p>
           <form onSubmit={onSubmit} className="w-5/6 m_auto">
             <div className="md:flex">
@@ -364,10 +372,12 @@ const seo = () => {
                   id="package"
                   required
                   onChange={handlePackage}
-                  className="w-full block mb-5 text-slate-100"
-                  style={{ color: "#808480" }}
+                  className="w-full block mb-5 text-slate-500"
+                  // style={{ color: "#808480" }}
                 >
-                  <option value="">Select your SEO Package</option>
+                  <option value="" className="text-slate-500">
+                    Select your SEO Package
+                  </option>
                   <option value="bronze">Bronze/5 Keywords Local</option>
                   <option value="silver">
                     Silver/10 Keywords Moderate Competitive
@@ -387,8 +397,7 @@ const seo = () => {
                 <select
                   name="budget1"
                   id="bronze-budget"
-                  required
-                  className="w-full block mb-5 text-slate-100 hidden"
+                  className="w-full mb-5 text-slate-100 hidden"
                   style={{ color: "#808480" }}
                   onChange={handleChange}
                 >
@@ -398,9 +407,8 @@ const seo = () => {
                 </select>
                 <select
                   name="budget2"
-                  required
                   id="silver-budget"
-                  className="w-full block mb-5 text-slate-100 hidden"
+                  className="w-full mb-5 text-slate-100 hidden"
                   style={{ color: "#808480" }}
                   onChange={handleChange}
                 >
@@ -411,10 +419,9 @@ const seo = () => {
                 </select>
                 <select
                   name="budget3"
-                  required
                   id="gold-budget"
                   onChange={handleChange}
-                  className="w-full block mb-5 text-slate-100 hidden"
+                  className="w-full mb-5 text-slate-100 hidden"
                   style={{ color: "#808480" }}
                 >
                   <option value="">Choose your Budget</option>
@@ -438,18 +445,45 @@ const seo = () => {
               value={values.message}
               onChange={handleChange}
             ></textarea>
-            <button
+            {/* <button
               type="submit"
               className="px-7 py-4 text-white float-right mt-4 bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
             >
               SUBMIT
-            </button>
+            </button> */}
+            <div className="mt-7 w-fit float-right flex">
+              <div className=" ">
+                <div
+                  className={`bg-green-700 flex justify-center items-center w-fit`}
+                  style={{ width: 115 }}
+                >
+                  <Button
+                    disabled={true}
+                    variant="solid"
+                    colorScheme=""
+                    isLoading={isLoading}
+                  ></Button>
+                </div>
+              </div>
+              <div className="absolute" id="sp">
+                <button
+                  style={{ width: 115 }}
+                  className={`hover:scale-105 shadow-2xl bg-green-700 text-white font-medium px-5 py-2.5`}
+                >
+                  SUBMIT
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </section>
       <div className="mt-24"></div>
       <GetStarted />
-      <Newsletter background="bg-green-800" button="bg-green-700" hover="hover:bg-green-500" />
+      <Newsletter
+        background="bg-green-800"
+        button="bg-green-700"
+        hover="hover:bg-green-500"
+      />
     </div>
   );
 };

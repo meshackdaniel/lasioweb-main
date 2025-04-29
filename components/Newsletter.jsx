@@ -105,7 +105,7 @@ const Newsletter = ({ background, button, hover }) => {
           <div className="w-full absolute left-0" id="sp">
             <button
               style={{ width: 115 }}
-              className={`${button} hover:scale-105 shadow-lg text-white font-medium rounded-lg px-5 py-2.5`}
+              className={`${button} hover:scale-105 shadow-2xl text-white font-medium rounded-lg px-5 py-2.5`}
             >
               Subscribe
             </button>

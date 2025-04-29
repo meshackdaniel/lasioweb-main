@@ -4,13 +4,13 @@ import Newsletter from "@/components/Newsletter";
 import Link from "next/link";
 const branding = () => {
   return (
-    <div className="text-sm">
+    <div>
       <div style={{backgroundPosition: "top center",backgroundImage: "url('https://res.cloudinary.com/dj2ybe6v0/image/upload/v1728899515/branding-bg_sdugfd.png')"}} className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-blue-800 h-screen">
         <div id="" className="basis-4/4 md:basis-2/4 text-white md:ms-20">
-          <h1 className="font-bold text-4xl mt-20 md:mt-0">
+          <h1 className="font-bold text-4xl md:text-5xl mt-20 md:mt-0">
             Branding & Logo
           </h1>
-          <p className="text-2xl mt-3">
+          <p className="text-2xl md:text-3xl mt-3">
           Create your identity and story in few steps.
           </p>
         </div>

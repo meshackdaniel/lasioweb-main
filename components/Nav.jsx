@@ -247,7 +247,7 @@ const Nav = () => {
           </div> */}
         </div>
       </div>
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className=" flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="flex flex-center gap-2">
           <Image
             src="/assets/images/logo.png"
@@ -262,7 +262,7 @@ const Nav = () => {
           <Link href="/request">
             <button
               type="button"
-              className={`text-white ${bgColor} shadow-lg font-bold uppercase md:focus:ring-4 focus:outline-none rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0`}
+              className={`text-white ${bgColor} shadow-lg font-bold uppercase focus:outline-none rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0`}
             >
               Get Quote
             </button>

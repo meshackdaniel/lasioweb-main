@@ -10,19 +10,20 @@ const services = () => {
       <BackgroundVideo
         src="https://res.cloudinary.com/dj2ybe6v0/video/upload/v1728896277/Blue_White_3D_Project_Plan_Business_Presentation_26_m5vrte.mp4"
         className="h-screen w-full max-w-screen-2xl bg-black"
-      >
-        <div className="max-w-xl md:-ms-80">
-          <h1 className="font-bold text-white text-4xl mt-20 md:mt-0">
-          Services
+      ></BackgroundVideo>
+      <div className="absolute top-0 left-0 h-screen w-full flex items-center px-10">
+        <div className="max-w-screen-xl">
+          <h1 className="font-bold text-white text-5xl  md:mt-0 relative">
+            Services
           </h1>
-          <p className="text-2xl mt-3 text-white">
-          We help connect businesses to their target customers and boost
-          conversions.
+          <p className="text-2xl md:text-3xl md:w-4/6 mt-3 text-white">
+            We help connect businesses to their target customers and boost
+            conversions.
           </p>
         </div>
-      </BackgroundVideo>
+      </div>
       <section className="w-full mb-10">
-        <h1 className="line_in_middle mb-10 text-xl ">Services We Offer</h1>
+        <h1 className="line_in_middle mb-10 text-xl">Services We Offer</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-7">
           <div class="max-w-sm p-6">
             <Image
@@ -266,7 +267,11 @@ const services = () => {
         </div>
       </section>
       <GetStarted />
-      <Newsletter background="bg-red-600" button="bg-red-800" hover="hover:bg-red-500" />
+      <Newsletter
+        background="bg-red-500"
+        button="bg-red-800"
+        hover="hover:bg-red-500"
+      />
     </>
   );
 };

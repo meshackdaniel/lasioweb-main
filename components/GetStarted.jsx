@@ -9,7 +9,7 @@ const GetStarted = () => {
             Ready to Get Started? Let's get it sheduled.
           </h1>
           <a href="/contact">
-            <button className="hover:bg-gray-500 hover:text-white hover:border-gray-900 border-solid text-gray-900 border-2 border-gray-600 p-3 md:p-3 rounded-3xl text-sm">
+            <button className="hover:bg-white bg-black text-white hover:text-black hover:border-black border-solid border-2 border-black p-3 md:p-3 px-5 rounded-3xl text-lg">
               WORK WITH US
             </button>
           </a>

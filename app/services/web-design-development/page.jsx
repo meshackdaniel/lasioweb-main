@@ -6,7 +6,7 @@ import BackgroundVideo from "next-video/background-video";
 
 const webDev = () => {
   return (
-    <div className="text-sm">
+    <div>
       <div
         style={{
           backgroundPosition: "bottom center",
@@ -16,10 +16,10 @@ const webDev = () => {
         className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-blue-800 h-screen"
       >
         <div id="" className="basis-4/4 md:basis-2/4 text-white md:ms-20">
-          <h1 className="font-bold text-4xl mt-20 md:mt-0">
+          <h1 className="font-bold text-4xl md:text-5xl mt-20 md:mt-0">
             Web Design & Development
           </h1>
-          <p className="text-2xl mt-3">
+          <p className="text-2xl md:text-3xl mt-3">
             Everyone can set up a website this days. We build strategic engaging
             websites that enforce credibility and communicate key messages and
             turning them into profits.

@@ -5,20 +5,25 @@ import BackgroundVideo from "next-video/background-video";
 
 const socialMediaMarketing = () => {
   return (
-    <div className="text-sm">
-      <BackgroundVideo
-        src="https://res.cloudinary.com/dj2ybe6v0/video/upload/v1728898743/Blue_White_3D_Project_Plan_Business_Presentation_30_byhgac.mp4"
-        className="h-screen w-full max-w-screen-2xl"
+    <div>
+      <div
+        style={{
+          backgroundPosition: "bottom center",
+          backgroundImage:
+            "url('https://res-console.cloudinary.com/dxmpvvt2k/media_explorer_thumbnails/0d7e6827b9f600e2cf289056fd2bcbef/detailed')",
+        }}
+        className="flex items-center md:flex-row p-5 md:p-10 justify-between h-screen bg-green-800"
       >
-        <div className="flex">
         <div id="" className="basis-4/4 md:basis-2/4 text-white md:ms-20">
-          <h1 className="font-bold text-4xl mt-20 md:mt-0">Social Media Marketing</h1>
-          <p className="text-2xl mt-3">
-          Data driven strategies to increase your brand awareness and get you ahead of your competition.
+          <h1 className="font-bold text-4xl md:text-5xl mt-20 md:mt-0">
+            Social Media Marketing
+          </h1>
+          <p className="text-2xl md:text-3xl mt-3">
+            Data driven strategies to increase your brand awareness and get you
+            ahead of your competition.
           </p>
         </div>
-        </div>
-      </BackgroundVideo>
+      </div>
       <section className="md:flex w-5/6">
         <div className="basis-3/4">
           <h1 className="mt-10 text-2xl md:text-4xl">Reaching your audience</h1>

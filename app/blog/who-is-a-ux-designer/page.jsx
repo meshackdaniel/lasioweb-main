@@ -7,18 +7,23 @@ const page = () => {
     <div className="">
       <div
         style={{
-          backgroundPosition: "bottom center",
+          backgroundPosition: "top center",
           backgroundImage:
             "url('https://res.cloudinary.com/dj2ybe6v0/image/upload/v1728909113/Black_white_digital_marketing_facebook_cover_1_zs3vgl.png')",
         }}
-        className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-green-800 h-screen bg-green-800"
+        className="flex items-center md:flex-row p-5 md:p-10 justify-between h-96 bg-green-800"
       >
-        <div id="" className="basis-4/4 md:basis-2/4 text-white md:ms-20">
-          <h1 className="font-bold text-5xl mt-20 md:mt-0">About Us</h1>
-          <p className="text-3xl mt-3">
-            We are experienced web designers who solve problems and grow
-            businesses.
-          </p>
+        <div id="" className="text-white md:ms-20">
+          <h1 className="font-bold text-6xl mt-20 md:mt-0">
+            Who is a UX designer?
+          </h1>
+          <div className="flex mt-3 items-center gap-4">
+            <p>Meshack Daniel</p>
+            <span>/</span>
+            <p className="text-base">26 April, 2025</p>
+            <span>/</span>
+            <p className="text-base"><span>Share</span></p>
+          </div>
         </div>
       </div>
       <section className="w-5/6 md:w-5/6">

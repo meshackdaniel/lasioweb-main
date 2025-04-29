@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import GetStarted from "@/components/GetStarted";
-import { FormControl, useToast } from "@chakra-ui/react";
+import { Button, FormControl, useToast } from "@chakra-ui/react";
 import { dmContactForm } from "@/lib/api";
 import { useState } from "react";
 import Newsletter from "@/components/Newsletter";
@@ -18,7 +18,7 @@ const initState = { values: initValues };
 const marketing = () => {
   const toast = useToast();
   const [state, setState] = useState(initState);
-  const { values } = state;
+  const { values, isLoading } = state;
   const handleChange = ({ target }) =>
     setState((prev) => ({
       ...prev,
@@ -29,8 +29,14 @@ const marketing = () => {
     }));
   const onSubmit = async (e) => {
     e.preventDefault();
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
+    document.getElementById("sp").setAttribute("class", "hidden");
     try {
       await dmContactForm(values);
+      document.getElementById("sp").setAttribute("class", "absolute");
       setState(initState);
       toast({
         title: "Message sent.",
@@ -43,13 +49,20 @@ const marketing = () => {
     } catch (error) {}
   };
   return (
-    <div className="text-sm">
-      <div style={{backgroundPosition: "top center",backgroundImage: "url('https://res.cloudinary.com/dj2ybe6v0/image/upload/v1728903200/Black_white_digital_marketing_facebook_cover_v14ggk.png')"}} className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-red-800 h-screen">
+    <div>
+      <div
+        style={{
+          backgroundPosition: "top center",
+          backgroundImage:
+            "url('https://res.cloudinary.com/dj2ybe6v0/image/upload/v1728903200/Black_white_digital_marketing_facebook_cover_v14ggk.png')",
+        }}
+        className="flex items-center md:flex-row p-5 md:p-10 justify-between bg-red-800 h-screen"
+      >
         <div id="" className="basis-4/4 md:basis-2/4 text-white md:ms-20">
-          <h1 className="font-bold text-4xl mt-20 md:mt-0">
+          <h1 className="font-bold text-4xl md:text-5xl mt-20 md:mt-0">
             Digital Marketing
           </h1>
-          <p className="text-2xl mt-3">
+          <p className="text-2xl md:text-3xl mt-3">
             Let's give you a space in the world's largest market.
           </p>
         </div>
@@ -128,12 +141,35 @@ const marketing = () => {
               placeholder="How can we help you?"
               className="w-full h-32"
             ></textarea>
-            <button
+            {/* <button
               type="submit"
               className="px-7 py-4 text-white bg-red-700 hover:bg-red-800 float-right mt-4 text-sm"
             >
               SUBMIT
-            </button>
+            </button> */}
+            <div className="mt-7 w-fit float-right flex">
+              <div className=" ">
+                <div
+                  className={`bg-red-700 flex justify-center items-center w-fit`}
+                  style={{ width: 115 }}
+                >
+                  <Button
+                    disabled={true}
+                    variant="solid"
+                    colorScheme=""
+                    isLoading={isLoading}
+                  ></Button>
+                </div>
+              </div>
+              <div className="absolute" id="sp">
+                <button
+                  style={{ width: 115 }}
+                  className={`hover:scale-105 shadow-2xl bg-red-700 text-white text-base font-medium px-5 py-2.5`}
+                >
+                  SUBMIT
+                </button>
+              </div>
+            </div>
           </form>
         </div>
         <div className="ms-10 hidden md:block">
@@ -348,7 +384,11 @@ const marketing = () => {
         </div>
       </section>
       <GetStarted />
-      <Newsletter background="bg-red-600" button="bg-red-800" hover="hover:bg-red-500" />
+      <Newsletter
+        background="bg-red-500"
+        button="bg-red-800"
+        hover="hover:bg-red-500"
+      />
     </div>
   );
 };
